@@ -127,9 +127,11 @@ public class MVCPatternDemo {
 **Step 5**
 Verify the output.
 
+```bash
 Student: 
 Name: Robert
 Roll No: 10
 Student: 
 Name: John
 Roll No: 10
+```
