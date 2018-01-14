@@ -38,7 +38,7 @@ public class A {
 }
 </pre>
 
-### Pasar la clase B a la clase A desde el exterior. Inversión de control
+### Pasar la clase B a la clase A desde el exterior. Inversión de Control
 
 El método anterior no siempre puede ser válido. A veces en el main o en otro sitio hacemos los new de las clases A y B y no nos interesa que A haga otro new de B. Para estos casos, la solución es pasarle a A, bien en el constructor, bien en un método hecho con tal fin, la clase B para que pueda usarla. El código de A podría ser cualquiera de los dos siguientes
 
@@ -153,10 +153,10 @@ a.unMetodoDeA();
 </pre>
 Resumiendo, las dos ventajas del uso de interfaces son:
 
-* Nuestra clase es más reutilizable, podemos llevarla a otros proyectos sin  necesidad de llevarnos muchas más clases.
+* Nuestra clase es más reutilizable, podemos llevarla a otros proyectos sin necesidad de llevarnos muchas más clases.
 * Nuestra clase puede cambiar su comportamiento, llamando a futuras clases que hagamos simplemente implementando la interfaz.
 
-###Inversión del Control
+### Desacoplamiento de clases
 
 El ejemplo que hemos hecho de A y B es bastante simple en el sentido de que hay un trozo de código que hace new de A y de B y luego pasa B a A. Pero en un programa más complejo, esto puede liarse. Imagina que tenemos una clase AA que es la que hace el new de A y otra clase BB que es la que hace el new de B y seguimos necesitando que A pueda llamar a métodos de B. El procedimiento que debemos seguir es el mismo, pero tenemos que poner métodos setB() y getB() por doquier, de forma que donde se haga el new de AA y de BB se pueda obtener B y pasárselo a A. El código puede ser así:
 
@@ -191,7 +191,7 @@ aa.setB(bb.getB());
 </pre>
 
 
-### Localizador de servicios
+### Localizador de Servicios
 
 El tema puede complicarse mucho, puede haber muchas más clases que debamos pasar de un lado a otro, no solo B. Y puede haber muchos niveles de clases, como AAAA que hace new de AAA que a su vez hace new de AA y a su vez de A, por lo que el trasiego de getB() y setB() puede crecer mucho.
 
