@@ -1,5 +1,5 @@
 # MVC
-MVC Pattern stands for Model-View-Controller Pattern. This pattern is used to separate application's concerns.
+MVC pattern stands for **Model, View, Controller** pattern. This pattern is used to separate application's concerns.
 
 * **Model** - Model represents an object or JAVA POJO carrying data. It can also have logic to update controller if its data changes.
 
@@ -7,13 +7,15 @@ MVC Pattern stands for Model-View-Controller Pattern. This pattern is used to se
 
 * **Controller** - Controller acts on both model and view. It controls the data flow into model object and updates the view whenever data changes. It keeps view and model separate.
 
-Implementation
+## Implementation
 We are going to create a Student object acting as a model.StudentView will be a view class which can print student details on console and StudentController is the controller class responsible to store data in Student object and update view StudentView accordingly.
 
 MVCPatternDemo, our demo class, will use StudentController to demonstrate use of MVC pattern.
 
 MVC Pattern UML Diagram
-Step 1
+
+
+**Step 1**
 Create Model.
 
 Student.java
@@ -38,7 +40,8 @@ public class Student {
       this.name = name;
    }
 }
-Step 2
+
+**Step 2**
 Create View.
 
 StudentView.java
@@ -50,7 +53,8 @@ public class StudentView {
       System.out.println("Roll No: " + studentRollNo);
    }
 }
-Step 3
+
+**Step 3**
 Create Controller.
 
 StudentController.java
@@ -84,7 +88,8 @@ public class StudentController {
       view.printStudentDetails(model.getName(), model.getRollNo());
    }	
 }
-Step 4
+
+**Step 4**
 Use the StudentController methods to demonstrate MVC design pattern usage.
 
 MVCPatternDemo.java
@@ -115,7 +120,8 @@ public class MVCPatternDemo {
       return student;
    }
 }
-Step 5
+
+**Step 5**
 Verify the output.
 
 Student: 
