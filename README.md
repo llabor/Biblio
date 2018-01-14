@@ -1,8 +1,10 @@
 # Biblio
-Una de las dudas básicas de los principiantes en java es cómo llamar a métodos o acceder a atributos de una clase java desde otra clase. Veamos aquí varias opciones.
+
+## Acceso desde una clase Java a otra
+Cómo llamar a métodos o acceder a atributos de una clase java desde otra clase; varias opciones:
 
 
-== La clase A instancia a la clase B y llama a un método de la misma ==
+### La clase A instancia a la clase B y llama a un método de la misma
 
 Si desde una clase A queremos llamar a métodos de una clase B, lo más inmediato es que la clase A haga el new de la clase B y llame a su método. Por ejemplo, si la clase B es
 
