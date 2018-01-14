@@ -12,7 +12,7 @@ Let's create a Student object acting as a model. StudentView will be a view clas
 
 MVCPatternDemo, our demo class, will use StudentController to demonstrate use of MVC pattern.
 
-[MVC Pattern UML Diagram](https://github.com/llabor/Biblio/tree/master/PatronesDiseño)
+[MVC Pattern UML Diagram](https://github.com/llabor/Biblio/blob/master/PatronesDiseño/mvc_pattern_uml_diagram.jpg)
 
 **Step 1**
 Create Model.
