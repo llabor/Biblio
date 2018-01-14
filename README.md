@@ -38,7 +38,7 @@ public class A {
 }
 </pre>
 
-== Pasar la clase B a la clase A desde el exterior. Inversión de control ==
+### Pasar la clase B a la clase A desde el exterior. Inversión de control
 
 El método anterior no siempre puede ser válido. A veces en el main o en otro sitio hacemos los new de las clases A y B y no nos interesa que A haga otro new de B. Para estos casos, la solución es pasarle a A, bien en el constructor, bien en un método hecho con tal fin, la clase B para que pueda usarla. El código de A podría ser cualquiera de los dos siguientes
 
@@ -84,7 +84,7 @@ a.unMetodoDeA();
 Esto se conoce como "inversión de control" o "IoC". La clase A, en vez de hacer el new, espera que alguien lo haga por ella y se lo pase.
 
 
-== Uso de interfaces ==
+### Uso de Interfaces
 
 Con el procedimiento anterior, pasar la clase B a la clase A, suelen usarse interfaces, aunque no es necesario. La idea es que B implemente una InterfazB y que A espere recibir esa interfaz, tal que así
 
@@ -156,9 +156,9 @@ Resumiendo, las dos ventajas del uso de interfaces son:
 * Nuestra clase es más reutilizable, podemos llevarla a otros proyectos sin  necesidad de llevarnos muchas más clases.
 * Nuestra clase puede cambiar su comportamiento, llamando a futuras clases que hagamos simplemente implementando la interfaz.
 
-== Complicando el asunto ==
+###Inversión del Control
 
-El ejemplo que hemos hecho de A y B es bastante simple en el sentido de que hay un trozo de código que hace new de A y de B y luego pasa B a A. Pero en un programa más complejo, esto puede liarse. Imagina que tenemos una clase AA que es la que hace el new de A y otra clase BB que es la que hace el new de B y seguimos necesitando que A pueda llamar a métodos de B. El procedimiento que debemos seguir es el mismo, pero tenemos que poner métodos setB() y getB() por doquier, de forma que donde se haga el new de AA y de BB se pueda obtener B y pasárselo a A. El código puede ser así
+El ejemplo que hemos hecho de A y B es bastante simple en el sentido de que hay un trozo de código que hace new de A y de B y luego pasa B a A. Pero en un programa más complejo, esto puede liarse. Imagina que tenemos una clase AA que es la que hace el new de A y otra clase BB que es la que hace el new de B y seguimos necesitando que A pueda llamar a métodos de B. El procedimiento que debemos seguir es el mismo, pero tenemos que poner métodos setB() y getB() por doquier, de forma que donde se haga el new de AA y de BB se pueda obtener B y pasárselo a A. El código puede ser así:
 
 Por un lado, AA debe tener un setB() que le pasa B a A.
 
@@ -191,7 +191,7 @@ aa.setB(bb.getB());
 </pre>
 
 
-== Localizador de servicios ==
+### Localizador de servicios
 
 El tema puede complicarse mucho, puede haber muchas más clases que debamos pasar de un lado a otro, no solo B. Y puede haber muchos niveles de clases, como AAAA que hace new de AAA que a su vez hace new de AA y a su vez de A, por lo que el trasiego de getB() y setB() puede crecer mucho.
 
@@ -256,7 +256,7 @@ Comentábamos antes que había varias variantes de esta opción: localizador de 
 
 La versión de Servicio que acabamos de ver es un "localizador de servicios". Los servicios (la clase B) se "registran" en algún momento (Servicio.setB(new B());) y a partir de ahí se pueden usar en cualquier sitio (Servicio.getB().unMetodoDeB();)
 
-== ¿Inversión de control o localizador de servicios? ==
+### Inversión de Control vs Localizador de Servicios
 
 ¿Cual es mejor? Por supuesto, va en cuestión de gustos. Lo habitual es que cuando una clase se va a usar en muchos sitios y se quiera que sea siempre la misma instancia, por ejemplo, conexiones a base de datos, sockets de comunicaciones, etc, se use un servicio. Por otro lado, si la clase B fuese una clase un tanto especial que solo se va a usar en un sitio o dos, o queremos que haya muchas instancias de B circulando por ahí, como por ejemplo un panel de una interfaz de usuario con una tabla de ventas, una caja de texto que pide valores numéricos, etc, entonces se usaría inversión de control, es decir, pasarle a las clase A de nuestro código a través de setter sobre qué clases B en concreto tendrían que actuar.
 
