@@ -19,7 +19,7 @@ MVC Pattern UML Diagram
 Create Model.
 
 ```bash
-**Student.java**
+ngStudent.java
 
 public class Student {
    private String rollNo;
