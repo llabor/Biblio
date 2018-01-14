@@ -18,14 +18,9 @@ MVC Pattern UML Diagram
 **Step 1**
 Create Model.
 
-Student.java
+```bash
+**Student.java**
 
-```bash
-ng new PROJECT-NAME
-cd PROJECT-NAME
-ng serve
-```
-```bash
 public class Student {
    private String rollNo;
    private String name;
